@@ -1,0 +1,24 @@
+.nav-bar {
+  display: flex;
+  background-color: var(--color-green-200);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  .list {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      text-decoration: none;
+      color: var(--color-white-100);
+      &:hover,
+      &.active {
+        color: rgb(237, 254, 124);
+      }
+    }
+
+    @media (max-width: 400px) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.task-details-container {
+  width: 70%;
+  height: 70%;
+  margin: 0 auto;
+
+  .back-button {
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+  .task-details-card {
+    background-color: var(--color-beige-100);
+    border-radius: 25px;
+    padding: 30px;
+
+    .task-details {
+      display: grid;
+
+      // TODO: Make a mixin for this so we dont have to hardcode percentages
+      grid-template-columns: 33% 33% 33%;
+      @media (max-width: 1000px) {
+        grid-template-columns: 50% 50%;
+        @media (max-width: 500px) {
+          grid-template-columns: 100%;
+        }
+      }
+
+      input,
+      select {
+        font: inherit;
+        padding: 0.25rem;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 4px;
+      margin-top: 30px;
+
+      .delete-button {
+        background: none;
+        border: none;
+        &:hover {
+          background-color: var(--color-grey-200);
+        }
+      }
+      @media (max-width: 600px) {
+        display: block;
+        text-align: center;
+
+        button {
+          margin-bottom: 7px;
+        }
+      }
+    }
+  }
+}

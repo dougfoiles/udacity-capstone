@@ -1,0 +1,20 @@
+.task-bar-filter {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+
+  p {
+    padding-right: 6px;
+    border-right: solid;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    &.active {
+      text-decoration: underline;
+    }
+  }
+  p:last-of-type {
+    border: none;
+  }
+}

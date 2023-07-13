@@ -1,0 +1,126 @@
+@use "../common/common-styles.scss" as m;
+
+.pomodoro-tasks-container {
+  @include m.card(70%);
+
+  .button-panel {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .task-bars {
+    display: flex;
+    justify-content: space-evenly;
+
+    .task-bar {
+      width: 50%;
+
+      .list {
+        padding: 10px;
+
+        li:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+      .pomodoro-task-item {
+        display: flex;
+        width: 100%;
+        background-color: var(--color-white-100);
+        border-radius: 10px;
+        border: solid;
+        border-color: black;
+        &:hover {
+          background-color: var(--color-grey-100);
+        }
+        &.active {
+          background-color: var(--color-grey-100);
+        }
+
+        .form {
+          margin: auto;
+          input {
+            width: 16px;
+            height: 16px;
+            margin: 0 15px;
+            cursor: pointer;
+          }
+        }
+
+        .pomodoro-task-title {
+          cursor: pointer;
+          padding: 10px;
+          width: 100%;
+          height: 100%;
+          font-size: 18px;
+          overflow-wrap: anywhere;
+
+          .due-date {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pomodoro-container {
+  @include m.card(70%);
+  @include m.transition(background-color);
+
+  &.WORK {
+    background-color: beige;
+  }
+  &.SHORT_BREAK {
+    background-color: #c4d4f6;
+  }
+  &.LONG_BREAK {
+    background-color: #9cb8f3;
+  }
+  margin: 0 auto 25px auto;
+
+  p {
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  .headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    justify-items: center;
+
+    div:nth-child(1) {
+      grid-column-start: 2;
+    }
+    div:nth-child(2) {
+      margin-left: auto;
+    }
+
+    .mode-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      button {
+        border-radius: 5px;
+        cursor: pointer;
+        width: 56px;
+        font: inherit;
+        border: none;
+        &.active {
+          border: solid;
+        }
+      }
+    }
+
+    .break-counter {
+      align-self: center;
+    }
+  }
+
+  .timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}

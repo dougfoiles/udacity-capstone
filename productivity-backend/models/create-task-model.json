@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "group",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "dueDate": {
+      "type": "string"
+    },
+    "goalId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": ["description", "type"],
+  "additionalProperties": false
+}

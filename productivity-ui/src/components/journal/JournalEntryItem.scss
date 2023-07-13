@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: solid;
+  border-color: white;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    border-color: black;
+    cursor: pointer;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .date {
+    font-size: 16px;
+  }
+}

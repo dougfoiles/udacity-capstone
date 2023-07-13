@@ -1,0 +1,16 @@
+@mixin card($width: 50%) {
+  height: 100%;
+  width: $width;
+  min-width: 270px;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 30px;
+  background-color: beige;
+}
+
+@mixin transition($element, $seconds: 1s, $transitionType: ease-out) {
+  -webkit-transition: $element $seconds $transitionType;
+  -moz-transition: $element $seconds $transitionType;
+  -o-transition: $element $seconds $transitionType;
+  transition: $element $seconds $transitionType;
+}
