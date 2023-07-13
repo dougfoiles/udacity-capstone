@@ -1,0 +1,10 @@
+.styled-button {
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  font: inherit;
+  &:hover {
+    background-color: var(--color-grey-100);
+  }
+}

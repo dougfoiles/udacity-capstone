@@ -1,0 +1,24 @@
+@use "../common/style-constants.scss" as constants;
+
+.home {
+  height: 100%;
+  width: 50%;
+  min-width: constants.$min-card-width;
+  margin: 0 auto;
+  border-radius: 25px;
+  background-color: beige;
+  padding: 30px;
+  text-align: center;
+
+  .welcome-message {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 1.5;
+    vertical-align: middle;
+    overflow-wrap: break-word;
+  }
+
+  .action {
+    margin-top: 10px;
+  }
+}

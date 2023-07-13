@@ -1,0 +1,6 @@
+@use "../common/common-styles.scss" as m;
+
+.loading-container {
+  @include m.card(80%);
+  text-align: center;
+}

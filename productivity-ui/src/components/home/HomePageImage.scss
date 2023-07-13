@@ -1,0 +1,17 @@
+.homepage-image {
+  margin-top: 30px;
+
+  img {
+    height: 170px;
+    width: 170px;
+  }
+
+  .toggle-button {
+    margin-top: 20px;
+    width: 154px;
+
+    &.active {
+      background-color: var(--color-grey-100);
+    }
+  }
+}

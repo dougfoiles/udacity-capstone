@@ -1,0 +1,44 @@
+@use "../../common/common-styles.scss" as m;
+$width: 60%;
+
+.back-button-container {
+  width: $width;
+  margin: 0 auto;
+
+  .back-button {
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+}
+.details-container {
+  @include m.card($width);
+  .content-container {
+    padding: 20px;
+    margin-bottom: 20px;
+    .content {
+      text-align: center;
+      .title {
+        margin-bottom: 20px;
+        .label-title {
+          display: block;
+          font-size: 1.5em;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+      }
+
+      .text {
+        .label-text {
+          display: block;
+          font-size: 1.5em;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+}

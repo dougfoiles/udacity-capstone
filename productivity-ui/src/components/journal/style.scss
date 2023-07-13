@@ -1,0 +1,9 @@
+@use "../common/common-styles.scss" as m;
+
+.journal-container {
+  .journal-card {
+    @include m.card(60%);
+
+    margin-bottom: 20px;
+  }
+}
