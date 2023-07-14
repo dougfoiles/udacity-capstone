@@ -2,6 +2,14 @@
 
 Udacity capstone project to display understanding of the serverless technology in tandem with AWS resources.
 
+## Steps to run locally:
+
+1. Change to the productivity-ui directory
+2. Install node dependencies
+3. Run command **npm start** with **node v14.21.3**
+
+## Project details
+
 The app I created is a "productivity" app. It contains two main pages.
 
 1. Task List
@@ -14,12 +22,6 @@ The idea is there's 2 main tasks. Daily tasks and longer term tasks. All tasks m
 ### Pomodoro Timer
 
 The pomodoro page also requires the user to have a task selected in order to use it. This, like the goal constraint for creating tasks will force users to be clear about what they're doing and why.
-
-To run UI:
-
-1. Change to the productivity-ui directory
-2. Install node dependencies
-3. Run command npm start with node v14.21.3
 
 Back end code is deployed so no actions need to be taken on the back end
 
