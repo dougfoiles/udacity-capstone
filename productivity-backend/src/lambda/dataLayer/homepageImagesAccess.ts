@@ -5,9 +5,9 @@ import {
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
 import { HomepageImageItem } from "../../models/HomePageImageItem";
-// import { createLogger } from "../../utils/logger";
+import { createLogger } from "../../utils/logger";
 
-// const logger = createLogger("Data Layer Homepage Images");
+const logger = createLogger("Data Layer Homepage Images");
 
 export class HomepageImagesAccess {
   constructor(
@@ -16,7 +16,7 @@ export class HomepageImagesAccess {
   ) {}
 
   async getHomepageImageIdForUser(userId: string): Promise<any[]> {
-    console.log("Getting homepage image ID");
+    logger.info("Getting homepage image ID for user", userId);
 
     const command = new QueryCommand({
       TableName: this.homepageImageTable,
@@ -35,13 +35,14 @@ export class HomepageImagesAccess {
   async setHomepageImageForUser(
     homepageImage: HomepageImageItem
   ): Promise<any> {
-    console.log("Getting homepage image ID");
-
     const item = {
       userId: { S: homepageImage.userId },
       imageId: { S: homepageImage.imageId },
       createdAt: { S: homepageImage.createdAt },
     };
+
+    logger.info("Setting homepage image ID", item);
+
     const command = new PutItemCommand({
       TableName: this.homepageImageTable,
       Item: item,
@@ -53,7 +54,7 @@ export class HomepageImagesAccess {
   }
 
   async getHomepageImageForUser(userId: string): Promise<any> {
-    console.log("Getting homepage image ID");
+    logger.info("Getting homepage image for user", userId);
 
     const command = new QueryCommand({
       TableName: this.homepageImageTable,
@@ -72,7 +73,7 @@ export class HomepageImagesAccess {
 
 function createDynamoDBClient() {
   if (process.env.IS_OFFLINE) {
-    console.log("Creating a local DynamoDB instance");
+    logger.info("Creating a local DynamoDB instance");
     // return new XAWS.DynamoDB.DocumentClient({
     //   region: 'localhost',
     //   endpoint: 'http://localhost:8000'

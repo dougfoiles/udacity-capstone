@@ -9,9 +9,9 @@ import {
 
 import { TaskItem } from "../../models/TaskItem";
 import { TaskUpdate } from "../../models/TaskUpdate";
-// import { createLogger } from "../../utils/logger";
+import { createLogger } from "../../utils/logger";
 
-// const logger = createLogger("Data Layer Tasks Access");
+const logger = createLogger("Data Layer Tasks Access");
 
 export class TasksAccess {
   constructor(
@@ -21,7 +21,7 @@ export class TasksAccess {
   ) {}
 
   async getTasksForUser(userId: string): Promise<any[]> {
-    console.log("Getting all tasks");
+    logger.info("Getting tasks for user", userId);
 
     const command = new QueryCommand({
       TableName: this.tasksTable,
@@ -39,7 +39,7 @@ export class TasksAccess {
   }
 
   async getTaskForUser(userId: string, taskId: string): Promise<any[]> {
-    console.log(`Getting task with ID: ${taskId}`);
+    logger.info(`Getting task with ID: ${taskId}`);
 
     const command = new QueryCommand({
       TableName: this.tasksTable,
@@ -67,6 +67,7 @@ export class TasksAccess {
       type: { S: task.type },
     };
 
+    logger.info("Creating daily task", item);
     const command = new PutItemCommand({
       TableName: this.tasksTable,
       Item: item,
@@ -86,6 +87,7 @@ export class TasksAccess {
       done: { BOOL: task.done },
       type: { S: task.type },
     };
+    logger.info("Creating goald task", item);
 
     const command = new PutItemCommand({
       TableName: this.tasksTable,
@@ -108,6 +110,7 @@ export class TasksAccess {
       type: { S: task.type },
       goalId: { S: task.goalId },
     };
+    logger.info("Creating long term task", item);
 
     const command = new PutItemCommand({
       TableName: this.tasksTable,
@@ -128,6 +131,7 @@ export class TasksAccess {
       },
     });
 
+    logger.info("deleting task", taskId);
     await this.docClient.send(deleteCommand);
   }
 
@@ -152,34 +156,14 @@ export class TasksAccess {
       AttributeUpdates: attributeUpdates,
     });
 
+    logger.info("Updating task", taskId, taskUpdate);
     await this.docClient.send(command);
   }
-
-  // async updateTaskAttachment(
-  //   taskId: string,
-  //   userId: string,
-  //   attachmentUrl: string
-  // ): Promise<void> {
-  //   const command = new UpdateItemCommand({
-  //     TableName: this.tasksTable,
-  //     Key: { taskId: { S: taskId }, userId: { S: userId } },
-  //     AttributeUpdates: {
-  //       // AttributeUpdates
-  //       attachmentUrl: {
-  //         // AttributeValueUpdate
-  //         Value: { S: attachmentUrl },
-  //         Action: "PUT",
-  //       },
-  //     },
-  //   });
-
-  //   await this.docClient.send(command);
-  // }
 }
 
 function createDynamoDBClient() {
   if (process.env.IS_OFFLINE) {
-    console.log("Creating a local DynamoDB instance");
+    logger.info("Creating a local DynamoDB instance");
     // return new XAWS.DynamoDB.DocumentClient({
     //   region: 'localhost',
     //   endpoint: 'http://localhost:8000'
