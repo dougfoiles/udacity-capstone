@@ -26,8 +26,12 @@ const PomodoroTasks = (props: Props): JSX.Element => {
     return task.type === TASK_TYPES.LONG_TERM && !task.done;
   });
 
+  const tasksExist = dailyTasks.length > 0 || longTermTasks.length > 0;
+  const noTaskSelected = selectedItem === null || selectedItem === undefined;
+
   return (
     <div className="pomodoro-tasks-container">
+      {!tasksExist && <h1>Please create task in order to use timer</h1>}
       <div className="task-bars">
         <div className="task-bar">
           <h2>Daily</h2>
