@@ -32,6 +32,9 @@ const PomodoroTasks = (props: Props): JSX.Element => {
   return (
     <div className="pomodoro-tasks-container">
       {!tasksExist && <h1>Please create task in order to use timer</h1>}
+      {noTaskSelected && tasksExist && (
+        <h1>Please select task in order to use timer</h1>
+      )}
       <div className="task-bars">
         <div className="task-bar">
           <h2>Daily</h2>
