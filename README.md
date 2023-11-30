@@ -2,6 +2,8 @@
 
 Udacity capstone project to display understanding of the serverless technology in tandem with AWS resources.
 
+*Note: AWS resources are no longer running and back end services are not operational for this project*
+
 ## Steps to run locally:
 
 1. Change to the productivity-ui directory
